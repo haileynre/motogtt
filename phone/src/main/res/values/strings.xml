@@ -1,0 +1,3 @@
+<resources>
+    <string name="accessibility_description">WristFlick checks the foreground app and its window bounds, then performs a swipe or double-tap when you gesture on your paired watch. Only TikTok is supported. It does not store screen contents or request your TikTok password. Enable a remote session in WristFlick before use.</string>
+</resources>
