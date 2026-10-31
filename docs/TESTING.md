@@ -5,12 +5,12 @@
 - Source implementation: prepared.
 - XML and project component/resource wiring: checked with `python3 tools/check_project.py`.
 - Python helper syntax: checked locally.
-- Kotlin compilation, Android lint and JUnit execution: **not run**; no working Android toolchain is available in this workspace.
-- APK assembly and signature validation: **not run**.
-- GitHub workflow: included, **not run**.
+- Kotlin compilation, Android lint and JUnit execution: run by the [GitHub build workflow](https://github.com/haileynre/motogtt/actions). Open the latest run to check its result.
+- APK assembly and signature validation: run by that workflow; APK artifacts are published only after the checks pass.
+- GitHub workflow: installed and triggered on pushes to `main`, with manual runs also supported.
 - Emulator or physical-device test: **not run**.
 
-The source prototype is not a verified working app yet. Its first real build must run the supplied checks; physical TikTok behavior must then be tested.
+The source prototype is not hardware-verified yet. Even after a successful build, physical TikTok behavior must be tested on the Moto and watch.
 
 ## Automated checks in the build workflow
 

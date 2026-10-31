@@ -2,7 +2,7 @@
 
 A native Galaxy Watch gesture remote for TikTok on an Android phone, prepared for a Galaxy Watch 8 and Moto G Stylus.
 
-**Source prototype. No APK has been built in this workspace and no physical-device test has been run.** The Android SDK and Gradle are absent here, and attempted dependency downloads returned HTTP 403. The included GitHub Actions workflow provides an executable build route in a separate Android-capable environment.
+**Personal-use prototype; physical-device testing is still pending.** The project is hosted at [haileynre/motogtt](https://github.com/haileynre/motogtt). Its GitHub Actions workflow compiles both apps, runs the unit tests and Android lint, and verifies the APK identities and signatures before publishing downloadable artifacts. Check the [latest build results](https://github.com/haileynre/motogtt/actions) for the current status and APK downloads.
 
 ## Your controls
 
@@ -16,7 +16,7 @@ Use these gestures **inside the open WristFlick watch app**. They are touchscree
 
 ## Produce installable APKs with GitHub Actions
 
-You need a GitHub repository with Actions enabled. Nothing has been uploaded to GitHub automatically.
+The workflow is installed in `haileynre/motogtt`. To use that repository, start at step 2 below. To copy this project into another repository, start at step 1.
 
 1. Unzip the project. Add the **contents of the WristFlick folder at the root of the repository**, including `.github/workflows/android.yml`. Do not nest them under another WristFlick folder. A Git client preserves the hidden `.github` folder; if using GitHub's web upload, check that the workflow file is present afterward.
 2. Open the repository's **Actions** tab, select **Build phone and watch APKs**, then **Run workflow**. The manual button is available once the workflow is on the default branch. Pushes to `main` or `master` also trigger builds.
@@ -24,7 +24,7 @@ You need a GitHub repository with Actions enabled. Nothing has been uploaded to 
 4. If it succeeds, download the **WristFlick-debug-APKs** artifact from the run page. It contains `phone-debug.apk` and `wear-debug.apk` in their module folders.
 5. Install the phone APK on the Moto and the watch APK on the Galaxy Watch. Watch installation uses Android Studio/ADB on a computer. See [device setup](docs/SETUP.md).
 
-The workflow is supplied but has **not been run**. A successful future workflow run establishes that the build and checks passed; it does not establish TikTok compatibility on your devices.
+A successful workflow run establishes that compilation, unit tests, lint and APK checks passed. It does not establish TikTok compatibility on your devices. Use the APK pair from the same successful run.
 
 Both APKs from one run use the same generated debug signing key, as required for watch/phone communication. Fresh cloud runs may use a different key: Android will then require uninstalling the prior prototype from **both devices** before installing the matching new pair. That resets WristFlick setup; it does not uninstall TikTok. For iterative development, use one local Android Studio installation with a consistent debug key.
 
